@@ -1,0 +1,63 @@
+.container {
+  max-width: 450px;
+  width: 90%;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+
+  h4 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    margin-top: 2rem;
+
+    a {
+      color: #ff0000;
+      font-weight: 700;
+      transition: 0.3s;
+
+      &:hover {
+        color: #f07171;
+      }
+    }
+  }
+}
+
+.form_container {
+  margin-top: 3rem;
+  width: 100%;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      input,
+      select {
+        height: 4rem;
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      textarea {
+        margin-top: 0.5rem;
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+    }
+  }
+}

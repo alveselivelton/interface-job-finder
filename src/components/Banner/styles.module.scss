@@ -1,0 +1,60 @@
+.banner {
+  height: 550px;
+  background: url("/img/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.info {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1,
+  p {
+    text-align: center;
+    color: #fff;
+    margin: 0 1rem;
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.form {
+  max-width: 700px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+
+  input,
+  button {
+    margin-top: 3rem;
+    height: 5rem;
+  }
+
+  input {
+    width: 90%;
+    padding-left: 1rem;
+    border: none;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
