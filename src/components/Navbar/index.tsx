@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { HiMenu } from "react-icons/hi";
-import { useAuthStore } from "../../app/authStore";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuthStore } from "../../app/authStore";
+import { HiMenu } from "react-icons/hi";
 
 import styles from "./styles.module.scss";
 

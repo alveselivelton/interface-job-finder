@@ -1,10 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getById } from "../../api/jobApi";
 import { Data } from "../../types/job";
 import { remove } from "../../api/jobApi";
 import { useAuthStore } from "../../app/authStore";
-import { useEffect } from "react";
 
 import styles from "./styles.module.scss";
 

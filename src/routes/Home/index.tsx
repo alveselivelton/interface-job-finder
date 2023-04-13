@@ -1,18 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAll } from "../../api/jobApi";
+import { Data } from "../../types/job";
 
 import Banner from "../../components/Banner";
 import Job from "../../components/Job";
-
-import { Data } from "../../types/job";
+import Loading from "../../components/Loading";
 
 import styles from "./styles.module.scss";
 
 const Home = () => {
-  const { data } = useQuery<Data>({
+  const { data, isLoading } = useQuery<Data>({
     queryKey: ["jobs"],
     queryFn: () => getAll(),
   });
+
+  if (isLoading) return <Loading />;
 
   return (
     <section className={styles.container}>

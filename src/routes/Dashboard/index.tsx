@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthStore } from "../../app/authStore";
 import { getCurrentUser, getUserJobs } from "../../api/userApi";
+
 import Job from "../../components/Job";
+import Loading from "../../components/Loading";
 
 import styles from "./styles.module.scss";
 
@@ -28,7 +30,7 @@ const Dashboard = () => {
     enabled: !!id,
   });
 
-  if (isLoading) return <p>Carregando</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <section className={styles.dashboard_container}>

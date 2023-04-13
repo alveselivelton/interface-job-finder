@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../../api/userApi";
 

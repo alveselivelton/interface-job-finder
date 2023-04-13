@@ -2,9 +2,9 @@ import { FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { create, getById } from "../../api/jobApi";
+import { Data } from "../../types/job";
 
 import styles from "./styles.module.scss";
-import { Data } from "../../types/job";
 
 const Edit = () => {
   const [title, setTitle] = useState<string>("");
