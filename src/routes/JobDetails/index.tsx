@@ -6,6 +6,8 @@ import { Data } from "../../types/job";
 import { remove } from "../../api/jobApi";
 import { useAuthStore } from "../../app/authStore";
 
+import Loading from "../../components/Loading";
+
 import styles from "./styles.module.scss";
 
 const JobDetails = () => {
@@ -23,7 +25,7 @@ const JobDetails = () => {
 
   const queryClient = useQueryClient();
 
-  const { data } = useQuery<Data>({
+  const { data, isLoading } = useQuery<Data>({
     queryKey: ["job", id],
     queryFn: () => getById(String(id)),
   });
@@ -39,6 +41,8 @@ const JobDetails = () => {
   const handleDelete = (id: string) => {
     mutate(id);
   };
+
+  if (isLoading) return <Loading />;
 
   return (
     <section className={styles.job_details}>

@@ -4,6 +4,8 @@ import { search } from "../../api/jobApi";
 import Job from "../../components/Job";
 import { Data } from "../../types/job";
 
+import Loading from "../../components/Loading";
+
 import styles from "./styles.module.scss";
 
 const Search = () => {
@@ -11,10 +13,12 @@ const Search = () => {
 
   const q = searchParams.get("q") as string;
 
-  const { data } = useQuery<Data>({
+  const { data, isLoading } = useQuery<Data>({
     queryKey: ["search", q],
     queryFn: () => search(q),
   });
+
+  if (isLoading) return <Loading />;
 
   return (
     <section className={styles.search_container}>
