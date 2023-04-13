@@ -5,7 +5,7 @@ import { Data, JobProps } from "../types/job";
 // https://api-job-finder.vercel.app
 
 const jobApi = axios.create({
-  baseURL: "http://localhost:3000/api/jobs",
+  baseURL: "https://api-job-finder-production.up.railway.app/api/jobs",
   headers: {
     "Content-Type": "application/json",
   },

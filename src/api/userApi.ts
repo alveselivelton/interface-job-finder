@@ -2,10 +2,8 @@ import axios from "axios";
 import { Data, UserProps } from "../types/user";
 import { Data as JobsData } from "../types/job";
 
-// https://api-job-finder.vercel.app
-
 const userApi = axios.create({
-  baseURL: "http://localhost:3000/api/users",
+  baseURL: "https://api-job-finder-production.up.railway.app/api/users",
   headers: {
     "Content-type": "application/json",
   },
