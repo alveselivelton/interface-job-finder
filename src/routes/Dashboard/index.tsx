@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthStore } from "../../app/authStore";
 import { getCurrentUser, getUserJobs } from "../../api/userApi";
+import { useNavigate } from "react-router-dom";
 
 import Job from "../../components/Job";
 import Loading from "../../components/Loading";
@@ -10,7 +11,10 @@ import styles from "./styles.module.scss";
 
 const Dashboard = () => {
   const token = useAuthStore((state) => state.token);
+  const logout = useAuthStore((state) => state.logout);
   const checkUser = useAuthStore((state) => state.checkUser);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     checkUser();
@@ -19,7 +23,12 @@ const Dashboard = () => {
   const { data } = useQuery({
     queryKey: ["user", token],
     queryFn: () => getCurrentUser(token),
-    enabled: !!token,
+    onSuccess: (data) => {
+      if (!data._id) {
+        logout();
+        return navigate("/login");
+      }
+    },
   });
 
   const id = data?._id as string;

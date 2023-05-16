@@ -46,7 +46,7 @@ const Navbar = () => {
             </li>
           )}
           <li onClick={handleToggleMenu}>
-            <Link to={auth ? "/dashboard" : "/login"}>Perfil</Link>
+            <Link to={auth ? "/dashboard" : "/login"}>Dashboard</Link>
           </li>
           {auth && (
             <li onClick={handleToggleMenu}>
