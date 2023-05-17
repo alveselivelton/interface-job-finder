@@ -16,14 +16,11 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const chekUser = useAuthStore((state) => state.checkUser);
-
   const { mutate, data, isLoading } = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
       if (!data.errors) {
         localStorage.setItem("user", JSON.stringify(data));
-        chekUser();
         queryClient.invalidateQueries({ queryKey: ["userJobs"] });
         return navigate("/dashboard");
       }

@@ -1,34 +1,36 @@
 import { create } from "zustand";
 import { getCurrentUser } from "../api/userApi";
 
+type User = {
+  _id: string;
+  token: string;
+};
+
 type State = {
   auth: boolean;
-  userId: string;
-  token: string;
+  user: User;
   checkUser: () => void;
   logout: () => void;
 };
 
 export const useAuthStore = create<State>((set) => ({
   auth: false,
-  userId: "",
-  token: "",
+  user: JSON.parse(localStorage.getItem("user") || "false"),
   checkUser: async () => {
     const json = localStorage.getItem("user");
 
-    if (json) {
-      const { token, _id } = JSON.parse(json);
+    if (!json) return;
 
-      const user = await getCurrentUser(token);
+    const { token, _id } = JSON.parse(json);
 
-      if (!user._id) return;
+    const user = await getCurrentUser(token);
 
-      set((state) => ({
-        auth: (state.auth = true),
-        userId: (state.userId = _id),
-        token: (state.token = token),
-      }));
-    }
+    if (!user._id) return;
+
+    set((state) => ({
+      auth: (state.auth = true),
+      user: (state.user = { token, _id }),
+    }));
   },
   logout: () => {
     localStorage.setItem("user", "");

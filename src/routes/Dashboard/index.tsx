@@ -10,7 +10,7 @@ import Loading from "../../components/Loading";
 import styles from "./styles.module.scss";
 
 const Dashboard = () => {
-  const token = useAuthStore((state) => state.token);
+  const { token, _id } = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
   const checkUser = useAuthStore((state) => state.checkUser);
 
@@ -23,6 +23,7 @@ const Dashboard = () => {
   const { data } = useQuery({
     queryKey: ["user", token],
     queryFn: () => getCurrentUser(token),
+    enabled: !!token,
     onSuccess: (data) => {
       if (!data._id) {
         logout();
@@ -31,12 +32,10 @@ const Dashboard = () => {
     },
   });
 
-  const id = data?._id as string;
-
   const { data: JobsData, isLoading } = useQuery({
-    queryKey: ["userJobs", id, token],
-    queryFn: () => getUserJobs(id, token),
-    enabled: !!id,
+    queryKey: ["userJobs", _id, token],
+    queryFn: () => getUserJobs(_id, token),
+    enabled: !!_id,
   });
 
   if (isLoading) return <Loading />;

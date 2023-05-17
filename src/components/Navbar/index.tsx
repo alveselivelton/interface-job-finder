@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../../app/authStore";
 import { HiMenu } from "react-icons/hi";
@@ -8,14 +8,9 @@ import styles from "./styles.module.scss";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
+  const { _id } = useAuthStore((state) => state.user);
   const auth = useAuthStore((state) => state.auth);
-  const userId = useAuthStore((state) => state.userId);
-  const checkUser = useAuthStore((state) => state.checkUser);
   const logout = useAuthStore((state) => state.logout);
-
-  useEffect(() => {
-    checkUser();
-  }, []);
 
   const handleToggleMenu = () => {
     if (!openMenu) {
@@ -40,7 +35,7 @@ const Navbar = () => {
           </li>
           {auth && (
             <li onClick={handleToggleMenu}>
-              <Link to={`/post/${userId}`} className="btn">
+              <Link to={`/post/${_id}`} className="btn">
                 Abrir Vaga
               </Link>
             </li>
