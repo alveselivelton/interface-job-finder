@@ -2,7 +2,6 @@ import { FormEvent, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../../api/userApi";
-import { useAuthStore } from "../../../app/authStore";
 
 import styles from "../styles.module.scss";
 
