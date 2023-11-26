@@ -7,8 +7,16 @@ import Job from "../../components/Job";
 import Loading from "../../components/Loading";
 
 import styles from "./styles.module.scss";
+import { useAuthStore } from "../../app/authStore";
+import { useEffect } from "react";
 
 const Home = () => {
+  const checkUser = useAuthStore((state) => state.checkUser);
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
   const { data, isLoading } = useQuery<Data>({
     queryKey: ["jobs"],
     queryFn: () => getAll(),
