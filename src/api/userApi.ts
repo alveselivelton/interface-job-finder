@@ -3,7 +3,7 @@ import { Data, UserProps } from "../types/user";
 import { Data as JobsData } from "../types/job";
 
 const userApi = axios.create({
-  baseURL: "https://api-job-finder-production.up.railway.app/api/users",
+  baseURL: "https://jobfinder-hrnl.onrender.com/api/users",
   headers: {
     "Content-type": "application/json",
   },

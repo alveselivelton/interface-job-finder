@@ -3,7 +3,7 @@ import axios from "axios";
 import { Data, JobProps } from "../types/job";
 
 const jobApi = axios.create({
-  baseURL: "https://api-job-finder-production.up.railway.app/api/jobs",
+  baseURL: "https://jobfinder-hrnl.onrender.com/api/jobs",
   headers: {
     "Content-Type": "application/json",
   },
