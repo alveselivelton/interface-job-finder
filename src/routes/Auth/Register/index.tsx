@@ -64,6 +64,7 @@ const Register = () => {
               type="password"
               placeholder="Digite sua senha"
               value={password}
+              autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
@@ -73,6 +74,7 @@ const Register = () => {
               type="password"
               placeholder="Confirme sua senha"
               value={confirmPassword}
+              autoComplete="on"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>

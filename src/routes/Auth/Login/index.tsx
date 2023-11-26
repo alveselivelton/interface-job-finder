@@ -58,6 +58,7 @@ const Login = () => {
               type="password"
               placeholder="Digite sua senha"
               value={password}
+              autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
