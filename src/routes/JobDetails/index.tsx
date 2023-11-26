@@ -12,7 +12,7 @@ import styles from "./styles.module.scss";
 
 const JobDetails = () => {
   const auth = useAuthStore((state) => state.auth);
-  const userId = useAuthStore((state) => state.userId);
+  const userId = useAuthStore((state) => state.user._id);
   const checkUser = useAuthStore((state) => state.checkUser);
 
   useEffect(() => {
